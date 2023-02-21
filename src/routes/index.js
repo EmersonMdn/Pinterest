@@ -10,10 +10,12 @@ router.get("/", async (req, res) => {
   res.render("index", { images });
 });
 
+//? PAGINA DE SUBIDA
 router.get("/upload", (req, res) => {
   res.render("upload");
 });
 
+//? POST DE PUBLICACION
 router.post("/upload", async (req, res) => {
   const image = new Image();
   image.title = req.body.title;
@@ -30,15 +32,17 @@ router.post("/upload", async (req, res) => {
   res.redirect("/");
 });
 
+//? ELIMINAR UNA PUBLICACION
 router.get("/image/:id/delete", async (req, res) => {
   const { id } = req.params;
 
   const image = await Image.findByIdAndDelete(id);
-  await unlink(path.resolve("./src/public" + image.path));
+  await unlink(path.resolve("./src/public" + image.path)); // ELIMINO LA FOTO DE MI CARPETA LOCAL
 
   res.redirect("/");
 });
 
+//? UPDATE DE PUBLICACION
 router.post("/image/:id/update", async (req, res) => {
   const { id } = req.params;
   const {
@@ -51,7 +55,7 @@ router.post("/image/:id/update", async (req, res) => {
     orinalname,
     size,
   } = req.body;
-  const newImg = await Image.replaceOne(
+  await Image.replaceOne(
     { _id: id },
     {
       id,
@@ -65,10 +69,10 @@ router.post("/image/:id/update", async (req, res) => {
       size,
     }
   );
-  console.log(newImg);
   res.redirect("/");
 });
 
+//? PAGINA DE DETALLE DE IMAGEN
 router.get("/image/:id", async (req, res) => {
   const { id } = req.params;
   console.log(id);

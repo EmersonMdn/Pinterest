@@ -17,25 +17,24 @@
     <%- include('partials/navbar') %>
 
     <div class="container p-4">
-
         <div class="row">
-
             <div class="card-columns">
-
                 <% images.forEach(function(image){ %>
                 <div class="card animate__animated animate__fadeInDown">
                     <a href="/image/<%= image._id %>"><img src="<%= image.path  %>" class="card-img-top card-img"></a>
                     <div class="card-body">
                         <h5 class="card-title"><%= image.title %></h5>
                         <p class="card-text"><%= image.description %></p>
-                        <p class="card-text"><%= format(image.created_at) %></p>
-                        <a href="/image/<%= image._id %>" class="btn btn-primary">View profile</a>
+                        <small class="card-text"><%= format(image.created_at) %></small>
+                        <!-- <a href="/image/<%= image._id %>" class="btn btn-primary">View profile</a> -->
                     </div>
                 </div>
                 <% }) %>
             </div>
         </div>
     </div>
+
+    <%- include('partials/footer') %>
 </body>
 
 </html>

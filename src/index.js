@@ -16,6 +16,7 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
+
 const storage = multer.diskStorage({
   destination: path.join(__dirname, "public/img/uploads"),
   filename: (req, file, cb, filename) => {
@@ -31,10 +32,6 @@ app.use((req, res, next) => {
 });
 // ROUTES
 app.use(require("./routes/index.js"));
-
-// STATIC FILES
-
-app.get("/", (req, res) => res.send("Hello World!"));
 
 //START SERVER
 app.listen(app.get("port"), () => {
