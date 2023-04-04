@@ -9,6 +9,7 @@ const ImgSchema = new Schema({
   mimetype: { type: "string" },
   size: { type: "Number" },
   created_at: { type: "Date", default: Date.now() },
+  last_modified: { type: "Date" },
 });
 
 module.exports = model("image", ImgSchema);

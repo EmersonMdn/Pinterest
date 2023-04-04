@@ -20,9 +20,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <img src="<%= imagen.path  %>" class="card-img-top image-detail">
-                    <p class="card-text p-2"><%= format(imagen.created_at) %></p>
+                    <p class="card-text p-2"><i class="fa-solid fa-arrow-up-from-bracket"> </i>
+                        <%= format(imagen.created_at) %></p>
                     <div class="card-body">
-                        <a href="/image/<%= imagen._id%>/delete" class="btn btn-danger btn-block">Delete image</a>
+                        <a href="/image/<%= imagen._id%>/delete" class="btn btn-danger btn-block"><i
+                                class="fa-regular fa-trash-can"></i> Delete image</a>
                     </div>
                 </div>
             </div>

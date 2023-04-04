@@ -25,7 +25,13 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= image.title %></h5>
                         <p class="card-text"><%= image.description %></p>
-                        <small class="card-text"><%= format(image.created_at) %></small>
+                        <small class="card-text"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            <%= format(image.created_at) %></small>
+                        <% if (image.last_modified != null) { %>
+                        <small class="card-text d-block"><i class="fa-solid fa-pen"></i>
+                            <%= format(image.last_modified) %></small>
+                        <% } %>
+                        <!-- <small class="card-text"><%= format(image.last_modified) %></small> -->
                         <!-- <a href="/image/<%= image._id %>" class="btn btn-primary">View profile</a> -->
                     </div>
                 </div>

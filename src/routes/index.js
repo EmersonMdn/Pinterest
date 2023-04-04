@@ -45,6 +45,7 @@ router.get("/image/:id/delete", async (req, res) => {
 //? UPDATE DE PUBLICACION
 router.post("/image/:id/update", async (req, res) => {
   const { id } = req.params;
+  const last_modified = Date.now();
   const {
     title,
     description,
@@ -67,6 +68,7 @@ router.post("/image/:id/update", async (req, res) => {
       mimetype,
       orinalname,
       size,
+      last_modified,
     }
   );
   res.redirect("/");
