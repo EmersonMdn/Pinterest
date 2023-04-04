@@ -10,4 +10,4 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => console.log("DB connection established"))
-  .catch((err) => console.log("Error connecting to MongoDB"));
+  .catch((err) => console.log(err));
